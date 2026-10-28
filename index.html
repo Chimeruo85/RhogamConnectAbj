@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RhogamConnect — Prototype & Investor Pitch Companion</title>
+  <meta name="description" content="Interactive prototype for RhogamConnect: Landing page, Instagram concierge MVP, 72-hour emergency timer, pharmacy cold-chain verification portal, and honest 0-customer operations tracker.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="app-root">
+
+    <!-- MASTER TOP HEADER -->
+    <header class="master-header">
+      <div class="brand-wrapper">
+        <div class="brand-logo-icon">RC</div>
+        <div class="brand-info">
+          <h1>
+            RhogamConnect
+            <span class="badge">Abuja Pilot MVP</span>
+          </h1>
+          <p>Trust Infrastructure for Rhesus-Negative Maternal Health • Abuja Focus</p>
+        </div>
+      </div>
+
+      <!-- Navigation Views -->
+      <nav class="view-tabs">
+        <button class="view-tab-btn active" data-view="landing">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          rhogamconnect.com
+          <span class="badge-pill">Landing</span>
+        </button>
+        <button class="view-tab-btn" data-view="phone">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          @rhogamconnect.abj
+          <span class="badge-pill">Phone DMs</span>
+        </button>
+        <button class="view-tab-btn" data-view="tablet">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          Pharmacy Tablet Portal
+          <span class="badge-pill">Check-in</span>
+        </button>
+        <button class="view-tab-btn" data-view="excel">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Operations Tracker
+          <span class="badge-pill">Excel</span>
+        </button>
+      </nav>
+
+      <!-- Presenter Drawer Launcher -->
+      <button class="pitch-drawer-toggle" id="pitch-drawer-toggle">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/></svg>
+        <span>Pitch Companion</span>
+      </button>
+    </header>
+
+    <!-- MAIN PROTOTYPE CANVAS -->
+    <main class="prototype-canvas">
+
+      <!-- ===============================================================
+           VIEW 1: rhogamconnect.com (LANDING PAGE)
+           =============================================================== -->
+      <div class="view-container active-view" id="view-landing">
+        <div class="landing-page-wrap">
+
+          <!-- Localized Announcement Bar -->
+          <div class="lp-announcement-bar">
+            <div>
+              📍 Abuja Focus Pilot: <strong>Wuse 2 • Garki • Jabi</strong> &nbsp;|&nbsp; 
+              Verified Anti-D in 24 hours, not 2 weeks &nbsp;|&nbsp; 
+              0 Cost for Mums
+            </div>
+            <div class="loi-tag">
+              <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              LOI Signed: Nisa Premier Wuse 2 (20 Oct 2026)
+            </div>
+          </div>
+
+          <!-- Website Navbar -->
+          <nav class="lp-nav">
+            <a href="#" class="lp-brand">
+              <div class="lp-logo">RC</div>
+              <div>
+                <span class="lp-brand-name">RhogamConnect</span>
+                <span class="lp-domain-tag">rhogamconnect.com</span>
+              </div>
+            </a>
+            <div class="lp-nav-links">
+              <a href="#pharmacies">Verified Stock</a>
+              <a href="#passport">Rh Passport</a>
+              <a href="#husband-wedge">Husband Test Wedge</a>
+              <a href="#faqs">Cold-Chain FAQs</a>
+              <button class="lp-cta-btn" onclick="switchView('phone');">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                Chat on Instagram
+              </button>
+            </div>
+          </nav>
+
+          <!-- HERO SECTION -->
+          <section class="lp-hero" id="lp-hero-target">
+            <div class="hero-left">
+              <div class="hero-pill">
+                <span>🛡️</span> Continuous 2–8°C Fridge Verification Active
+              </div>
+              <h2 class="hero-title">
+                Find verified Anti-D in <span class="highlight">24 hours</span>, not 2 weeks.
+              </h2>
+              <p class="hero-subtitle">
+                In Nigeria, 2–4% of pregnancies are Rhesus-negative. When baby is born, mums have only 
+                <strong>72 hours</strong> to receive Anti-D or face deadly alloimmunization. 
+                We connect Abuja mums to verified cold-chain pharmacy stock with zero markups and zero repeat lab fees.
+              </p>
+
+              <!-- Problem/Solution Honest Stats -->
+              <div class="hero-stats-row">
+                <div class="hero-stat-card">
+                  <div class="num">3,200</div>
+                  <div class="label">Rh- Pregnancies / yr in Abuja (216k in Lagos)</div>
+                </div>
+                <div class="hero-stat-card">
+                  <div class="num">₦85,000</div>
+                  <div class="label">Verified Price (vs ₦142,500 unregulated retail)</div>
+                </div>
+                <div class="hero-stat-card">
+                  <div class="num">72 Hours</div>
+                  <div class="label">Automated Delivery Timer with multilingual alerts</div>
+                </div>
+              </div>
+
+              <div class="hero-actions">
+                <a href="#pharmacies" class="lp-cta-btn">
+                  Check Abuja Pharmacy Stock
+                </a>
+                <button class="btn-secondary" onclick="scrollToTarget('lp-passport-target')">
+                  View Aisha's Rh Passport
+                </button>
+                <button class="btn-secondary" onclick="openModal('modal-sanlive-photo')">
+                  📷 View Sanlive Fridge Photo
+                </button>
+              </div>
+            </div>
+
+            <!-- HERO RIGHT: LIVE COLD CHAIN PROOF CARD -->
+            <div class="hero-card-preview">
+              <div class="hero-card-badge">LIVE COLD-CHAIN AUDIT</div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                <div>
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: #064e3b;">Sanlive Pharmacy</h3>
+                  <p style="font-size: 0.78rem; color: #64748b;">Plot 1044, Aminu Kano Crescent, Wuse 2, Abuja</p>
+                </div>
+                <span class="stock-status-pill stock-in">● 14 In Stock</span>
+              </div>
+
+              <!-- Cold chain telemetry -->
+              <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">Digital Fridge Sensor:</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-weight: 800; color: #059669; font-size: 1.1rem;">
+                    4.2°C (Target: 2.0°C – 8.0°C)
+                  </span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem;">
+                  <span style="color: #64748b;">Primary Power:</span>
+                  <span style="color: #0f172a; font-weight: 700;">AEDC Grid + 10kVA Inverter Active</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; margin-top: 0.3rem;">
+                  <span style="color: #64748b;">NAFDAC Batch Code:</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #0f172a;">#IN-RH-84920</span>
+                </div>
+              </div>
+
+              <div class="coldchain-checklist">
+                <div class="check-item"><span class="icon-check">✓</span> Batch & Expiry physically logged daily</div>
+                <div class="check-item"><span class="icon-check">✓</span> 2–8°C Thermometer photo uploaded this morning</div>
+                <div class="check-item"><span class="icon-check">✓</span> 24/7 Generator/Solar battery backup confirmed</div>
+                <div class="check-item"><span class="icon-check">✓</span> ₦85,000 price ceiling contractually locked</div>
+              </div>
+
+              <button class="lp-cta-btn" onclick="switchView('tablet')" style="width: 100%; margin-top: 1rem; justify-content: center;">
+                Open Pharmacy Attendant Tablet Form
+              </button>
+            </div>
+          </section>
+
+          <!-- ABUJA PHARMACY NETWORK SECTION -->
+          <section class="lp-section" id="pharmacies">
+            <div class="section-head">
+              <span class="section-tag">Abuja Pilot Hubs</span>
+              <h2 class="section-title">Verified Pharmacies in Wuse 2, Garki & Jabi</h2>
+              <p class="section-desc">
+                We do not list any pharmacy that cannot prove continuous 2–8°C storage. 
+                Our tablet forces daily batch numbers, temperature logs, and backup generator confirmation before stock appears online.
+              </p>
+            </div>
+
+            <div class="pharmacy-grid">
+              <!-- Pharmacy 1: Sanlive Wuse 2 -->
+              <div class="pharmacy-card">
+                <div class="pharmacy-card-top">
+                  <div>
+                    <h3 class="ph-name">Sanlive Pharmacy</h3>
+                    <div class="ph-location">📍 Aminu Kano Cres, Wuse 2</div>
+                  </div>
+                  <span class="stock-status-pill stock-in">● 14 Doses In-Stock</span>
+                </div>
+                <div class="pharmacy-details">
+                  <div class="spec-list">
+                    <div class="spec-row">
+                      <span class="spec-label">NAFDAC Reg:</span>
+                      <span class="spec-val">04-8931L</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Batch Number:</span>
+                      <span class="spec-val">IN-RH-84920</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Expiry Date:</span>
+                      <span class="spec-val">15-Sep-2027</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Today's Temp:</span>
+                      <span class="spec-val" style="color: #059669;">4.2°C (Optimal)</span>
+                    </div>
+                  </div>
+                  <div class="coldchain-checklist">
+                    <div class="check-item"><span class="icon-check">✓</span> Daily Log Photo Checked (08:15 AM)</div>
+                    <div class="check-item"><span class="icon-check">✓</span> 10kVA Inverter + Backup Gen Online</div>
+                  </div>
+                </div>
+                <div class="pharmacy-footer">
+                  <div>
+                    <span class="ph-price">₦85,000</span>
+                    <span class="ph-price-sub">Verified Cold-Chain Rate</span>
+                  </div>
+                  <button class="lp-cta-btn" onclick="openModal('modal-sanlive-photo')" style="padding: 0.45rem 0.85rem; font-size: 0.75rem;">
+                    View Audit Photo
+                  </button>
+                </div>
+              </div>
+
+              <!-- Pharmacy 2: HealthRite Garki -->
+              <div class="pharmacy-card">
+                <div class="pharmacy-card-top">
+                  <div>
+                    <h3 class="ph-name">HealthRite Pharmacy</h3>
+                    <div class="ph-location">📍 Area 11, Garki, Abuja</div>
+                  </div>
+                  <span class="stock-status-pill stock-in">● 8 Doses In-Stock</span>
+                </div>
+                <div class="pharmacy-details">
+                  <div class="spec-list">
+                    <div class="spec-row">
+                      <span class="spec-label">NAFDAC Reg:</span>
+                      <span class="spec-val">04-8931L</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Batch Number:</span>
+                      <span class="spec-val">IN-RH-81204</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Expiry Date:</span>
+                      <span class="spec-val">22-Jun-2027</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Today's Temp:</span>
+                      <span class="spec-val" style="color: #059669;">3.8°C (Optimal)</span>
+                    </div>
+                  </div>
+                  <div class="coldchain-checklist">
+                    <div class="check-item"><span class="icon-check">✓</span> Daily Log Photo Checked (07:45 AM)</div>
+                    <div class="check-item"><span class="icon-check">✓</span> Dedicated Diesel Generator Verified</div>
+                  </div>
+                </div>
+                <div class="pharmacy-footer">
+                  <div>
+                    <span class="ph-price">₦85,000</span>
+                    <span class="ph-price-sub">Verified Cold-Chain Rate</span>
+                  </div>
+                  <button class="lp-cta-btn" onclick="switchView('phone')" style="padding: 0.45rem 0.85rem; font-size: 0.75rem;">
+                    Reserve Stock
+                  </button>
+                </div>
+              </div>
+
+              <!-- Pharmacy 3: MedPlus Jabi -->
+              <div class="pharmacy-card">
+                <div class="pharmacy-card-top">
+                  <div>
+                    <h3 class="ph-name">MedPlus Pharmacy</h3>
+                    <div class="ph-location">📍 Jabi Lake Mall, Abuja</div>
+                  </div>
+                  <span class="stock-status-pill stock-alert">⚠️ 2 Doses (Low Stock)</span>
+                </div>
+                <div class="pharmacy-details">
+                  <div class="spec-list">
+                    <div class="spec-row">
+                      <span class="spec-label">NAFDAC Reg:</span>
+                      <span class="spec-val">04-8931L</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Batch Number:</span>
+                      <span class="spec-val">IN-RH-79401</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Expiry Date:</span>
+                      <span class="spec-val">10-May-2027</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Today's Temp:</span>
+                      <span class="spec-val" style="color: #059669;">4.6°C (Optimal)</span>
+                    </div>
+                  </div>
+                  <div class="coldchain-checklist">
+                    <div class="check-item"><span class="icon-check">✓</span> Daily Log Photo Checked (09:10 AM)</div>
+                    <div class="check-item"><span class="icon-check">✓</span> Mall Central UPS + Gen Backup</div>
+                  </div>
+                </div>
+                <div class="pharmacy-footer">
+                  <div>
+                    <span class="ph-price">₦85,000</span>
+                    <span class="ph-price-sub">Verified Cold-Chain Rate</span>
+                  </div>
+                  <button class="btn-secondary" onclick="switchView('phone')" style="padding: 0.45rem 0.85rem; font-size: 0.75rem;">
+                    Pre-Order Next Batch
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- RH PASSPORT SHOWCASE SECTION -->
+          <section class="lp-section passport-section-bg" id="lp-passport-target">
+            <div class="section-head">
+              <span class="section-tag">Cross-Facility Trust</span>
+              <h2 class="section-title">One-Visit Rh Passport</h2>
+              <p class="section-desc">
+                Saves mums ₦5,000–₦10,000 in repeated hospital blood group tests. 
+                One physical & digital card accepted across partner facilities in Abuja.
+              </p>
+            </div>
+
+            <div class="passport-showcase-grid">
+              <!-- Physical Card Display -->
+              <div class="passport-card-physical">
+                <div class="passport-watermark">Rh-</div>
+                <div class="passport-head">
+                  <div>
+                    <div class="passport-type">FEDERAL CAPITAL TERRITORY • MATERNAL TRUST NETWORK</div>
+                    <h3 class="passport-title">Official Rh-Negative Passport</h3>
+                  </div>
+                  <div class="passport-qr-box">
+                    <!-- SVG QR CODE -->
+                    <svg viewBox="0 0 100 100" fill="#0f172a">
+                      <rect x="0" y="0" width="30" height="30" fill="#064e3b"/>
+                      <rect x="5" y="5" width="20" height="20" fill="#ffffff"/>
+                      <rect x="10" y="10" width="10" height="10" fill="#064e3b"/>
+                      <rect x="70" y="0" width="30" height="30" fill="#064e3b"/>
+                      <rect x="75" y="5" width="20" height="20" fill="#ffffff"/>
+                      <rect x="80" y="10" width="10" height="10" fill="#064e3b"/>
+                      <rect x="0" y="70" width="30" height="30" fill="#064e3b"/>
+                      <rect x="5" y="75" width="20" height="20" fill="#ffffff"/>
+                      <rect x="10" y="80" width="10" height="10" fill="#064e3b"/>
+                      <rect x="40" y="20" width="10" height="20" fill="#064e3b"/>
+                      <rect x="60" y="40" width="20" height="10" fill="#064e3b"/>
+                      <rect x="40" y="60" width="20" height="20" fill="#064e3b"/>
+                      <rect x="70" y="70" width="10" height="20" fill="#064e3b"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="passport-body-grid">
+                  <div>
+                    <div class="p-field-label">Mother's Name</div>
+                    <div class="p-field-val">Aisha Bello (28)</div>
+                    <div style="font-size: 0.72rem; color: #a7f3d0;">Teacher & Tailor, Kubwa</div>
+                  </div>
+                  <div>
+                    <div class="p-field-label">Maternal Blood Group</div>
+                    <div class="p-field-val">
+                      <span class="blood-badge">O- NEGATIVE</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="p-field-label">Husband Test Result</div>
+                    <div class="p-field-val">
+                      <span style="color: #fef08a; font-weight: 800;">O- POSITIVE (Rh+)</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="p-field-label">Gestational Age / Due Date</div>
+                    <div class="p-field-val">28 Weeks ANC Due</div>
+                  </div>
+                </div>
+
+                <div class="passport-footer-loi">
+                  <div>
+                    <strong>Partner LOI:</strong> Nisa Premier Hospital, Wuse 2 (Signed 20 Oct 2026)
+                  </div>
+                  <div style="color: #6ee7b7; font-weight: 700;">
+                    Scan QR for 72h Timer
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Feature Details & Actions -->
+              <div>
+                <h3 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem;">
+                  Why Aisha's Rh Passport Eliminates 3 Wasted Hospital Trips
+                </h3>
+                <ul style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.92rem; color: #475569; margin-bottom: 1.75rem; list-style: none;">
+                  <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                    <span style="color: #059669; font-weight: 800;">✓</span>
+                    <div><strong>Cross-Facility Recognition:</strong> We only claim facilities we have active LOIs with (Nisa Premier Wuse 2 signed 20 Oct). Private clinics honor this card without demanding fresh ₦30k lab batteries.</div>
+                  </li>
+                  <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                    <span style="color: #059669; font-weight: 800;">✓</span>
+                    <div><strong>72-Hour Timer QR Code:</strong> Midwives scan the card at delivery, instantly triggering the maternal reminder schedule in English, Pidgin, or Hausa.</div>
+                  </li>
+                  <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                    <span style="color: #059669; font-weight: 800;">✓</span>
+                    <div><strong>Husband Verification Stamped:</strong> Confirms if Oga's blood was tested, preventing doctors from prescribing Anti-D when baby is not at risk.</div>
+                  </li>
+                </ul>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                  <button class="lp-cta-btn" id="btn-issue-passport">
+                    Generate Sample Rh Passport
+                  </button>
+                  <button class="btn-secondary" onclick="switchView('phone'); handleChatKeyword('CARD');">
+                    Send to Phone via DM
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- HUSBAND TEST WEDGE CALCULATOR -->
+          <section class="lp-section" id="husband-wedge">
+            <div class="section-head">
+              <span class="section-tag">The Wedge Strategy</span>
+              <h2 class="section-title">The "Husband Test" Calculator</h2>
+              <p class="section-desc">
+                If Oga is also Rhesus-Negative (7.7% statistical probability in Nigeria), you save ₦60,000–₦142,500. 
+                No Anti-D injection is needed at all! We charge labs ₦500 commission, never mums.
+              </p>
+            </div>
+
+            <div style="max-width: 760px; margin: 0 auto;">
+              <div class="calculator-card">
+                <div class="calc-input-group">
+                  <span class="calc-label">Select Husband's Blood Status:</span>
+                  <div class="radio-pills">
+                    <div class="radio-pill-item">
+                      <input type="radio" id="h-status-unknown" name="husband-rh-status" value="unknown" checked>
+                      <label for="h-status-unknown">❓ Untested / Unknown</label>
+                    </div>
+                    <div class="radio-pill-item">
+                      <input type="radio" id="h-status-neg" name="husband-rh-status" value="rh_negative">
+                      <label for="h-status-neg">🛡️ Rh- Negative (7.7%)</label>
+                    </div>
+                    <div class="radio-pill-item">
+                      <input type="radio" id="h-status-pos" name="husband-rh-status" value="rh_positive">
+                      <label for="h-status-pos">⚠️ Rh+ Positive (92.3%)</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="calc-result-display" class="calc-result-box">
+                  <!-- Dynamically populated via app.js -->
+                  <div style="background: #f0fdf4; border: 1.5px dashed #059669; border-radius: 12px; padding: 1.25rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                      <span style="font-size: 1.5rem;">🧪</span>
+                      <strong style="color: #065f46; font-size: 1.05rem;">The "Husband Test" Wedge: ₦500 Voucher</strong>
+                    </div>
+                    <p style="font-size: 0.88rem; color: #334155; margin-bottom: 0.85rem;">
+                      Don't pay ₦30,000 for hospital blood tests. Test Oga today at partner labs in Wuse 2 or Garki. 
+                      If he is Rh-negative (7.7% chance), you completely save ₦60k!
+                    </p>
+                    <button class="lp-cta-btn" onclick="openModal('modal-lab-voucher')" style="font-size: 0.78rem;">
+                      Claim ₦500 Lab Voucher for Oga
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQS (HIGHLIGHTING FAQ 7 & FAQ 8) -->
+          <section class="lp-section" id="faqs">
+            <div class="section-head">
+              <span class="section-tag">Pitch Script Questions</span>
+              <h2 class="section-title">Frequently Asked Questions</h2>
+              <p class="section-desc">
+                Everything mothers, doctors, and investors ask about cold-chain verification, pricing, and the 72-hour timer.
+              </p>
+            </div>
+
+            <div class="faq-grid">
+              <!-- FAQ 7: 72H TIMER -->
+              <div class="faq-item highlight-faq open" id="faq-7-target">
+                <button class="faq-question">
+                  <span><span class="faq-badge">FAQ 7</span> What is the 72-Hour Timer and how does it save babies from alloimmunization?</span>
+                  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>
+                    When a Rhesus-negative mother delivers a Rhesus-positive baby, microscopic fetal red cells leak into her bloodstream. 
+                    Her immune system requires approximately <strong>72 hours</strong> to produce irreversible antibodies that attack and kill future fetuses (hemolytic disease, commonly misdiagnosed as <em>abiku</em> or witchcraft in Nigeria).
+                  </p>
+                  <p style="margin-top: 0.5rem;">
+                    <strong>The 72h Workflow:</strong> Mum or midwife replies <code>DELIVERED</code> via Instagram DMs or WhatsApp. 
+                    Our system triggers an automated countdown with reminders every 12 hours: 
+                    <code>72h → 60h → 48h → 36h → 24h → 12h → 0h</code>. 
+                    Reminders are sent in English, Nigerian Pidgin, or Hausa for Gwagwalada/Bwari. 
+                    Replying <code>RECEIVED</code> along with a photo of the batch vial instantly closes the timer and verifies administration.
+                  </p>
+                  <div style="margin-top: 0.75rem;">
+                    <button class="lp-cta-btn" onclick="switchView('phone'); handleChatKeyword('DELIVERED');" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">
+                      Test 72-Hour Timer Simulation on Phone
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ 8: COLD-CHAIN 5-POINT VERIFICATION -->
+              <div class="faq-item highlight-faq open" id="faq-8-target">
+                <button class="faq-question">
+                  <span><span class="faq-badge">FAQ 8</span> How does Cold-Chain Verification work? How do you prevent dead or fake vaccines?</span>
+                  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>
+                    Anti-D immunoglobulin is a delicate biological protein that permanently loses potency if exposed to temperatures outside <strong>2°C to 8°C</strong>. 
+                    In Abuja where grid power is intermittent, pharmacies often sell heat-damaged Anti-D at ₦142,500 that fails to protect the mother.
+                  </p>
+                  <p style="margin-top: 0.5rem;">
+                    <strong>Our 5-Point Physical Protocol:</strong> We provide each partner pharmacy with a dedicated tablet that requires:
+                  </p>
+                  <ol style="margin-left: 1.25rem; margin-top: 0.35rem; display: flex; flex-direction: column; gap: 0.3rem;">
+                    <li><strong>Batch Number verification</strong> matching imported NAFDAC-approved consignment.</li>
+                    <li><strong>Expiry Date validation</strong> (minimum 6 months shelf-life).</li>
+                    <li><strong>Daily Fridge Thermometer Photo</strong> showing current reading between 2.0°C and 8.0°C.</li>
+                    <li><strong>Physical Temperature Logbook</strong> signature from registered pharmacist.</li>
+                    <li><strong>24/7 Power Backup confirmation</strong> (active generator or inverter/solar battery bank).</li>
+                  </ol>
+                  <p style="margin-top: 0.5rem;">
+                    <strong>The Stockout Formula:</strong> Our operational tracker calculates rolling availability via 
+                    <code>=SUMIF(A:A, Date, J:J)</code> and <code>=COUNTIF(P3:P9, "*STOCKOUT*")/7</code>. 
+                    If stockout rate exceeds 30%, we automatically kill our "24-hour delivery" ads and pivot to pre-order with RSI donated dose buffers.
+                  </p>
+                  <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem;">
+                    <button class="btn-secondary" onclick="openModal('modal-sanlive-photo')" style="font-size: 0.75rem;">
+                      📷 View Sanlive Fridge Photo
+                    </button>
+                    <button class="btn-secondary" onclick="switchView('excel')" style="font-size: 0.75rem;">
+                      📊 View Excel Stockout Sheet
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- OTHER ESSENTIAL FAQS -->
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Why is RhogamConnect completely free for pregnant mothers?</span>
+                  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="faq-answer">
+                  A mother in Kubwa or Nyanya paying ₦15,000 out-of-pocket for primary healthcare cannot and will not pay a ₦20,000 tech subscription. 
+                  We monetize through three B2B revenue streams:
+                  (1) ₦20,000 procurement margin per verified dose (wholesale $35 / ~₦55k sold at ₦85k), 
+                  (2) ₦500 lab commission per husband blood group test, and 
+                  (3) ₦50,000/month demand forecasting data sold to pharmaceutical importers. Break-even is just 55 mothers per month.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>Why haven't you built a full native mobile app yet?</span>
+                  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="faq-answer">
+                  Aisha has a Tecno Android phone with 1.5GB of weekly mobile data and will not download a 40MB medical app she needs once in a lifetime. 
+                  She lives on WhatsApp and Instagram. Our concierge MVP uses Meta Business Suite keyword automations (CARD, PRICE, HUSBAND, SANNU) 
+                  and an Excel operational sheet. We will scale to 100 verified mothers before writing a single line of native mobile code.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FOOTER -->
+          <footer style="background: #0f172a; color: #94a3b8; padding: 3rem 2rem 2rem; border-top: 1px solid #1e293b;">
+            <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+              <div>
+                <strong style="color: white; font-size: 1.1rem;">RhogamConnect Abuja</strong>
+                <p style="font-size: 0.8rem; margin-top: 0.25rem;">
+                  Pilot Coverage: Wuse 2 • Garki • Jabi &nbsp;|&nbsp; 
+                  Partner LOI: Nisa Premier Hospital (Signed 20 Oct 2026)
+                </p>
+              </div>
+              <div style="font-size: 0.75rem; text-align: right;">
+                Honest 0 Customer Baseline • Prototype Live • Tracker starts 28 Oct 2026
+              </div>
+            </div>
+          </footer>
+
+        </div>
+      </div>
+
+
+      <!-- ===============================================================
+           VIEW 2: SMARTPHONE CONCIERGE SIMULATOR (@rhogamconnect.abj)
+           =============================================================== -->
+      <div class="view-container" id="view-phone">
+        <div class="phone-sim-wrap">
+
+          <!-- TECNO SMARTPHONE MOCKUP -->
+          <div class="device-shell">
+            <div class="device-notch">
+              <div class="notch-speaker"></div>
+              <div class="notch-camera"></div>
+            </div>
+
+            <div class="device-screen">
+              <!-- Mobile Status Bar -->
+              <div class="phone-status-bar">
+                <span>09:41</span>
+                <span style="display: flex; align-items: center; gap: 4px;">
+                  <span>4G</span>
+                  <span>MTN-NG</span>
+                  <span>🔋 84%</span>
+                </span>
+              </div>
+
+              <!-- Screen Sub-Navigation (Instagram vs Chat) -->
+              <div class="phone-view-tabs">
+                <button class="phone-view-tab active" data-phone-view="chat">
+                  💬 Concierge DMs
+                </button>
+                <button class="phone-view-tab" data-phone-view="instagram">
+                  📸 Instagram @rhogamconnect.abj
+                </button>
+              </div>
+
+              <!-- SUB-VIEW A: CONCIERGE CHAT -->
+              <div class="phone-screen-content" id="phone-screen-chat" style="display: flex;">
+                <div class="chat-container">
+                  <div class="chat-header">
+                    <div style="width: 32px; height: 32px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem;">RC</div>
+                    <div style="flex: 1;">
+                      <div style="font-weight: 700; font-size: 0.82rem;">RhogamConnect Abuja</div>
+                      <div style="font-size: 0.65rem; color: #a7f3d0;">● Verified Concierge Bot (Meta Suite)</div>
+                    </div>
+                  </div>
+
+                  <!-- Messages Scroll Area -->
+                  <div class="chat-messages-area" id="chat-messages-scroll">
+                    <div class="chat-bubble bot">
+                      👋 Sannu Aisha! Welcome to RhogamConnect Concierge for Abuja (Wuse 2 • Garki • Jabi).
+                      <br><br>
+                      We help you verify cold-chain Anti-D within 24 hours. Tap a keyword below or message us directly!
+                      <div class="chat-timestamp">09:30</div>
+                    </div>
+                  </div>
+
+                  <!-- Quick Keyword Testing Chips -->
+                  <div class="chat-keyword-chips">
+                    <button class="keyword-chip" data-keyword="DELIVERED">🚨 DELIVERED (72h Timer)</button>
+                    <button class="keyword-chip" data-keyword="RECEIVED">✅ RECEIVED (Stop Timer)</button>
+                    <button class="keyword-chip" data-keyword="HUSBAND">💡 HUSBAND (Save ₦60k)</button>
+                    <button class="keyword-chip" data-keyword="PRICE">💰 PRICE (₦85k)</button>
+                    <button class="keyword-chip" data-keyword="CARD">🪪 CARD (Rh Passport)</button>
+                    <button class="keyword-chip" data-keyword="SANNU">🇳🇬 SANNU (Hausa)</button>
+                    <button class="keyword-chip" data-keyword="BAWO NI">🇳🇬 BAWO NI (Yoruba)</button>
+                  </div>
+
+                  <!-- Chat Input Bar -->
+                  <div class="chat-input-bar">
+                    <input type="text" id="chat-input-text" placeholder="Type a message or keyword...">
+                    <button class="chat-send-btn" id="chat-send-trigger">➤</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SUB-VIEW B: INSTAGRAM 9-GRID PROFILE -->
+              <div class="phone-screen-content" id="phone-screen-instagram" style="display: none;">
+                <div class="ig-profile-header">
+                  <div class="ig-profile-row">
+                    <div class="ig-avatar">RC</div>
+                    <div class="ig-stats">
+                      <div>
+                        <div class="ig-stat-num">9</div>
+                        <div class="ig-stat-label">posts</div>
+                      </div>
+                      <div>
+                        <div class="ig-stat-num">1,480</div>
+                        <div class="ig-stat-label">followers</div>
+                      </div>
+                      <div>
+                        <div class="ig-stat-num">142</div>
+                        <div class="ig-stat-label">following</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ig-bio">
+                    <strong>RhogamConnect Abuja</strong><br>
+                    🏥 Verified Anti-D (Rhogam) in 24h, not 2 weeks.<br>
+                    ❄️ 2–8°C Cold-Chain verified daily in Wuse 2 / Garki / Jabi.<br>
+                    🪪 Free Rh Passport • Partner LOI: Nisa Premier.<br>
+                    👇 <em>Send DM with "HUSBAND" or "PRICE" to start.</em>
+                  </div>
+
+                  <div class="ig-cta-row">
+                    <button class="ig-msg-btn" onclick="switchPhoneTab('chat')">Message Concierge</button>
+                    <button class="ig-msg-btn" style="background: #f1f5f9; color: #0f172a;" onclick="switchView('landing')">Website</button>
+                  </div>
+                </div>
+
+                <!-- 9-Grid Content -->
+                <div class="ig-grid">
+                  <div class="ig-grid-item" onclick="switchPhoneTab('chat'); handleChatKeyword('CARD');">
+                    <span>🪪 Rh Passport Explained</span>
+                  </div>
+                  <div class="ig-grid-item" style="background: #047857;" onclick="openModal('modal-sanlive-photo');">
+                    <span>❄️ Daily Fridge Log Photo</span>
+                  </div>
+                  <div class="ig-grid-item" style="background: #065f46;" onclick="switchPhoneTab('chat'); handleChatKeyword('HUSBAND');">
+                    <span>💡 Husband Test: Save ₦60k</span>
+                  </div>
+                  <div class="ig-grid-item" style="background: #0f766e;" onclick="switchPhoneTab('chat'); handleChatKeyword('DELIVERED');">
+                    <span>⏱️ The 72h Urgency Rule</span>
+                  </div>
+                  <div class="ig-grid-item" style="background: #0284c7;" onclick="switchPhoneTab('chat'); handleChatKeyword('PRICE');">
+                    <span>💰 Unregulated ₦142k vs ₦85k</span>
+                  </div>
+                  <div class="ig-grid-item" style="background: #0369a1;" onclick="switchView('landing');">
+                    <span>📍 Abuja Verified Pharmacies</span>
+                  </div>
+                  <div class="ig-grid-item" style="background: #1e3a8a;" onclick="switchPhoneTab('chat'); handleChatKeyword('SANNU');">
+                    <span>🇳🇬 Sannu! Hausa Support</span>
+                  </div>
+                  <div class="ig-grid-item" style="background: #4338ca;" onclick="openModal('modal-lab-voucher');">
+                    <span>🧪 ₦500 Lab Voucher</span>
+                  </div>
+                  <div class="ig-grid-item" style="background: #3730a3;" onclick="switchView('excel');">
+                    <span>📊 Honest 0-Baseline Tracker</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 72-HOUR TIMER COMPANION HUD -->
+          <div class="timer-companion-panel">
+            <span class="section-tag">Emergency Post-Delivery Protocol</span>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">
+              Active 72-Hour Delivery Countdown
+            </h3>
+            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1.25rem;">
+              When Aisha delivers at Kubwa, her nurse or husband replies <strong>DELIVERED</strong>. 
+              The system starts this high-urgency ticking clock with automated WhatsApp reminders every 12 hours.
+            </p>
+
+            <!-- Ticking HUD Box -->
+            <div class="timer-hud-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="timer-status-badge" style="padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 800; background: #059669;">
+                  ⚡ 72-HOUR ACTIVE DELIVERY COUNTDOWN
+                </span>
+                <span style="font-size: 0.72rem; color: #94a3b8;">Allocated: Sanlive Wuse 2</span>
+              </div>
+
+              <!-- Digits -->
+              <div class="timer-digits-box" id="timer-digits">
+                71:58:44
+              </div>
+
+              <!-- 12-Hour Timeline Steps -->
+              <div class="timer-timeline-track">
+                <div class="timer-step-node active-step" id="step-node-72">
+                  <div class="timer-step-circle"></div>
+                  <span>72h</span>
+                </div>
+                <div class="timer-step-node" id="step-node-60">
+                  <div class="timer-step-circle"></div>
+                  <span>60h</span>
+                </div>
+                <div class="timer-step-node" id="step-node-48">
+                  <div class="timer-step-circle"></div>
+                  <span>48h</span>
+                </div>
+                <div class="timer-step-node" id="step-node-36">
+                  <div class="timer-step-circle"></div>
+                  <span>36h</span>
+                </div>
+                <div class="timer-step-node" id="step-node-24">
+                  <div class="timer-step-circle"></div>
+                  <span>24h</span>
+                </div>
+                <div class="timer-step-node" id="step-node-12">
+                  <div class="timer-step-circle"></div>
+                  <span>12h</span>
+                </div>
+                <div class="timer-step-node" id="step-node-0">
+                  <div class="timer-step-circle"></div>
+                  <span>0h</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Multilingual Message Simulation -->
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <span style="font-size: 0.78rem; font-weight: 700; color: #334155;">Simulated Reminder Message:</span>
+                <div style="display: flex; gap: 0.35rem;">
+                  <button class="keyword-chip timer-lang-btn active" data-lang="english">English</button>
+                  <button class="keyword-chip timer-lang-btn" data-lang="pidgin">Pidgin</button>
+                  <button class="keyword-chip timer-lang-btn" data-lang="hausa">Hausa</button>
+                </div>
+              </div>
+              <div id="timer-reminder-sample" style="font-size: 0.82rem; color: #1e293b; line-height: 1.5;">
+                <strong>[English - 72 Hours Left]:</strong><br>
+                "Urgent: Aisha, 72 hours remaining in your Anti-D window. Verified batch #IN-RH-84920 is reserved at Sanlive Pharmacy, Wuse 2. Reply RECEIVED upon injection."
+              </div>
+            </div>
+
+            <!-- Milestone Jump Simulation Buttons -->
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; width: 100%;">Jump to Countdown Milestone:</span>
+              <button class="btn-secondary step-jump-btn" data-hour="60" style="font-size: 0.72rem; padding: 0.35rem 0.65rem;">60h Left</button>
+              <button class="btn-secondary step-jump-btn" data-hour="36" style="font-size: 0.72rem; padding: 0.35rem 0.65rem;">36h Left</button>
+              <button class="btn-secondary step-jump-btn" data-hour="24" style="font-size: 0.72rem; padding: 0.35rem 0.65rem;">24h Left (Urgent)</button>
+              <button class="btn-secondary step-jump-btn" data-hour="12" style="font-size: 0.72rem; padding: 0.35rem 0.65rem;">12h Left (Critical)</button>
+              <button class="lp-cta-btn" onclick="switchPhoneTab('chat'); handleChatKeyword('RECEIVED');" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">
+                Simulate Dose Administered (Stop Timer)
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ===============================================================
+           VIEW 3: PHARMACY PARTNER TABLET PORTAL (Wuse 2, Garki, Jabi)
+           =============================================================== -->
+      <div class="view-container" id="view-tablet">
+        <div class="tablet-portal-wrap">
+
+          <div class="tablet-frame" id="tablet-form-target">
+            <div class="tablet-topbar">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div style="width: 28px; height: 28px; background: #059669; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem;">RC</div>
+                <strong style="font-size: 0.95rem;">RhogamConnect Attendant Portal — Android Tablet v2.1</strong>
+              </div>
+              <div style="font-size: 0.78rem; display: flex; align-items: center; gap: 1rem;">
+                <span>Attendant: <strong>Blessing Okon</strong> (Sanlive Wuse 2)</span>
+                <span style="background: rgba(16, 185, 129, 0.2); padding: 0.2rem 0.6rem; border-radius: 6px; color: #34d399;">
+                  Wallet: <span id="tablet-rewards-counter">₦15,500</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="tablet-content-body">
+              <div class="tablet-check-form">
+
+                <!-- The Actual Excel / Tablet Validation Formula Banner -->
+                <div class="formula-banner">
+                  <div>
+                    <strong>Audit Logic Rule:</strong>
+                    <code>=IF(AND(Units>0, Temp>=2, Temp<=8, Photo="Yes", Power="Yes"), "✅ VERIFIED", "❌ REJECTED")</code>
+                  </div>
+                  <span style="font-size: 0.74rem; background: #047857; padding: 0.2rem 0.6rem; border-radius: 6px;">
+                    Daily Incentive: +₦500 per verified audit
+                  </span>
+                </div>
+
+                <!-- Input Fields -->
+                <div class="tablet-inputs-grid">
+                  <div class="form-field-group">
+                    <label>Pharmacy Hub Location:</label>
+                    <select id="tablet-hub-select">
+                      <option value="sanlive_wuse2">Sanlive Pharmacy — Wuse 2, Abuja</option>
+                      <option value="healthrite_garki">HealthRite Pharmacy — Area 11, Garki</option>
+                      <option value="medplus_jabi">MedPlus Pharmacy — Jabi Lake Mall</option>
+                    </select>
+                  </div>
+
+                  <div class="form-field-group">
+                    <label>NAFDAC Batch Code:</label>
+                    <input type="text" id="tablet-batch-input" value="IN-RH-84920">
+                  </div>
+
+                  <div class="form-field-group">
+                    <label>Physical Fridge Temperature (°C):</label>
+                    <input type="number" id="tablet-temp-input" step="0.1" value="4.2">
+                    <span style="font-size: 0.72rem; color: #64748b;">Acceptable biological storage range: 2.0°C to 8.0°C</span>
+                  </div>
+
+                  <div class="form-field-group">
+                    <label>Verified Unexpired Units In Stock:</label>
+                    <input type="number" id="tablet-units-input" value="14">
+                  </div>
+                </div>
+
+                <!-- Physical Checklist Checks -->
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem;">
+                  <div style="font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem;">
+                    Daily Physical Audit Verification Checklist:
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; cursor: pointer;">
+                      <input type="checkbox" id="tablet-photo-check" checked>
+                      <span>📷 <strong>Fridge & Thermometer photo uploaded</strong> (Shows physical dial between 2°C–8°C)</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; cursor: pointer;">
+                      <input type="checkbox" id="tablet-power-check" checked>
+                      <span>⚡ <strong>Continuous Power Guaranteed</strong> (Inverter battery bank charged + standby diesel gen tested)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Live Evaluated Verdict -->
+                <div class="validation-verdict-box verdict-pass" id="tablet-verdict-display">
+                  <!-- Evaluated via JS -->
+                  <div>
+                    <strong>✅ AUDIT PASSED: 100% COLD-CHAIN VERIFIED</strong><br>
+                    <span style="font-size: 0.8rem; font-weight: normal;">Formula: =IF(AND(Units>0, Temp 2-8°C, Photo="Yes", Power="Yes"), "✅", "❌")</span>
+                  </div>
+                  <button class="lp-cta-btn" id="btn-submit-audit" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;">
+                    Submit & Claim ₦500
+                  </button>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #64748b;">
+                  <span>Last successful sync: Today at 08:15 AM WAT</span>
+                  <a href="#" onclick="openModal('modal-sanlive-photo'); return false;" style="color: #059669; font-weight: 700;">
+                    Preview Uploaded Sanlive Fridge Photo ↗
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ===============================================================
+           VIEW 4: HONEST 0 BASELINE EXCEL DASHBOARD
+           =============================================================== -->
+      <div class="view-container" id="view-excel">
+        <div class="excel-tracker-wrap">
+
+          <div class="spreadsheet-window" id="excel-window-target">
+            <!-- Titlebar -->
+            <div class="excel-titlebar">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M21.17 3.25Q21.5 3.25 21.75 3.5 22 3.75 22 4.08V19.92Q22 20.25 21.75 20.5 21.5 20.75 21.17 20.75H7.83Q7.5 20.75 7.25 20.5 7 20.25 7 19.92V17H2.83Q2.5 17 2.25 16.75 2 16.5 2 16.17V7.83Q2 7.5 2.25 7.25 2.5 7 2.83 7H7V4.08Q7 3.75 7.25 3.5 7.5 3.25 7.83 3.25H21.17M7 9H4V15H7V9M20 5H9V19H20V5M11 7H13.2L14.5 9.7L15.8 7H18L15.5 11.5L18 16H15.8L14.5 13.3L13.2 16H11L13.5 11.5L11 7Z"/></svg>
+                <span>RhogamConnect_Abuja_Operations_Tracker_v1.0.xlsx — Protected View</span>
+              </div>
+              <span style="background: rgba(255,255,255,0.2); padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.72rem;">
+                Tracker Launch Date: 28 Oct 2026 (0 Baseline)
+              </span>
+            </div>
+
+            <!-- Formula Bar -->
+            <div class="excel-formula-bar-row">
+              <div class="cell-name-box" id="excel-cell-ref">P10</div>
+              <div class="fx-symbol">fx</div>
+              <input type="text" class="formula-input-display" id="excel-formula-input" value="=COUNTIF(P3:P9, &quot;*STOCKOUT*&quot;)/7" readonly>
+            </div>
+
+            <!-- Spreadsheet Grid -->
+            <div class="sheet-table-wrapper">
+              <table class="excel-table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>A (Date)</th>
+                    <th>B (Hub)</th>
+                    <th>C (Batch)</th>
+                    <th>D (Qty)</th>
+                    <th>E (Temp)</th>
+                    <th>F (Photo)</th>
+                    <th>G (Power)</th>
+                    <th>H (Audit Formula)</th>
+                    <th>J (Demand Count)</th>
+                    <th>P (Stockout Flag)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="header-row">
+                    <td>1</td>
+                    <td>Audit Date</td>
+                    <td>Pharmacy Hub</td>
+                    <td>NAFDAC Batch</td>
+                    <td>In-Stock</td>
+                    <td>Fridge Temp</td>
+                    <td>Photo Audited</td>
+                    <td>Gen / Inverter</td>
+                    <td>Status Rule</td>
+                    <td>Demand Log</td>
+                    <td>Stockout Status</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>28-Oct-2026</td>
+                    <td>Sanlive Wuse 2</td>
+                    <td>IN-RH-84920</td>
+                    <td>14</td>
+                    <td>4.2°C</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td class="cell-pass clickable-cell" data-cell-ref="H2" data-cell-formula="=IF(AND(D2>0, E2>=2, E2<=8, F2=&quot;Yes&quot;, G2=&quot;Yes&quot;), &quot;✅ VERIFIED&quot;, &quot;❌ REJECTED&quot;)">✅ VERIFIED</td>
+                    <td class="clickable-cell" data-cell-ref="J2" data-cell-formula="=SUMIF(A:A, &quot;28-Oct-2026&quot;, J:J)">0 (Baseline)</td>
+                    <td class="clickable-cell" data-cell-ref="P2" data-cell-formula="=IF(D2=0, &quot;STOCKOUT&quot;, &quot;IN_STOCK&quot;)">IN_STOCK</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>29-Oct-2026</td>
+                    <td>HealthRite Garki</td>
+                    <td>IN-RH-81204</td>
+                    <td>8</td>
+                    <td>3.8°C</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td class="cell-pass clickable-cell" data-cell-ref="H3" data-cell-formula="=IF(AND(D3>0, E3>=2, E3<=8, F3=&quot;Yes&quot;, G3=&quot;Yes&quot;), &quot;✅ VERIFIED&quot;, &quot;❌ REJECTED&quot;)">✅ VERIFIED</td>
+                    <td class="clickable-cell" data-cell-ref="J3" data-cell-formula="=SUMIF(A:A, &quot;29-Oct-2026&quot;, J:J)">2 Reservations</td>
+                    <td class="clickable-cell" data-cell-ref="P3" data-cell-formula="=IF(D3=0, &quot;STOCKOUT&quot;, &quot;IN_STOCK&quot;)">IN_STOCK</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>30-Oct-2026</td>
+                    <td>MedPlus Jabi</td>
+                    <td>IN-RH-79401</td>
+                    <td>2</td>
+                    <td>4.6°C</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td class="cell-pass clickable-cell" data-cell-ref="H4" data-cell-formula="=IF(AND(D4>0, E4>=2, E4<=8, F4=&quot;Yes&quot;, G4=&quot;Yes&quot;), &quot;✅ VERIFIED&quot;, &quot;❌ REJECTED&quot;)">✅ VERIFIED</td>
+                    <td class="clickable-cell" data-cell-ref="J4" data-cell-formula="=SUMIF(A:A, &quot;30-Oct-2026&quot;, J:J)">1 Reservation</td>
+                    <td class="clickable-cell" data-cell-ref="P4" data-cell-formula="=IF(D4=0, &quot;STOCKOUT&quot;, &quot;IN_STOCK&quot;)">IN_STOCK</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>31-Oct-2026</td>
+                    <td>Sanlive Wuse 2</td>
+                    <td>IN-RH-84920</td>
+                    <td>13</td>
+                    <td>4.1°C</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td class="cell-pass clickable-cell" data-cell-ref="H5" data-cell-formula="=IF(AND(D5>0, E5>=2, E5<=8, F5=&quot;Yes&quot;, G5=&quot;Yes&quot;), &quot;✅ VERIFIED&quot;, &quot;❌ REJECTED&quot;)">✅ VERIFIED</td>
+                    <td class="clickable-cell" data-cell-ref="J5" data-cell-formula="=SUMIF(A:A, &quot;31-Oct-2026&quot;, J:J)">1 Administered</td>
+                    <td class="clickable-cell" data-cell-ref="P5" data-cell-formula="=IF(D5=0, &quot;STOCKOUT&quot;, &quot;IN_STOCK&quot;)">IN_STOCK</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>01-Nov-2026</td>
+                    <td>MedPlus Jabi</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>-</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                    <td class="cell-fail clickable-cell" data-cell-ref="H6" data-cell-formula="=IF(AND(D6>0, E6>=2, E6<=8, F6=&quot;Yes&quot;, G6=&quot;Yes&quot;), &quot;✅ VERIFIED&quot;, &quot;❌ REJECTED&quot;)">❌ REJECTED</td>
+                    <td class="clickable-cell" data-cell-ref="J6" data-cell-formula="=SUMIF(A:A, &quot;01-Nov-2026&quot;, J:J)">3 Inquiries</td>
+                    <td class="cell-fail clickable-cell" data-cell-ref="P6" data-cell-formula="=IF(D6=0, &quot;STOCKOUT&quot;, &quot;IN_STOCK&quot;)">*STOCKOUT*</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>02-Nov-2026</td>
+                    <td>HealthRite Garki</td>
+                    <td>IN-RH-81204</td>
+                    <td>7</td>
+                    <td>3.9°C</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td class="cell-pass clickable-cell" data-cell-ref="H7" data-cell-formula="=IF(AND(D7>0, E7>=2, E7<=8, F7=&quot;Yes&quot;, G7=&quot;Yes&quot;), &quot;✅ VERIFIED&quot;, &quot;❌ REJECTED&quot;)">✅ VERIFIED</td>
+                    <td class="clickable-cell" data-cell-ref="J7" data-cell-formula="=SUMIF(A:A, &quot;02-Nov-2026&quot;, J:J)">1 Administered</td>
+                    <td class="clickable-cell" data-cell-ref="P7" data-cell-formula="=IF(D7=0, &quot;STOCKOUT&quot;, &quot;IN_STOCK&quot;)">IN_STOCK</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>03-Nov-2026</td>
+                    <td>Sanlive Wuse 2</td>
+                    <td>IN-RH-84920</td>
+                    <td>12</td>
+                    <td>4.3°C</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td class="cell-pass clickable-cell" data-cell-ref="H8" data-cell-formula="=IF(AND(D8>0, E8>=2, E8<=8, F8=&quot;Yes&quot;, G8=&quot;Yes&quot;), &quot;✅ VERIFIED&quot;, &quot;❌ REJECTED&quot;)">✅ VERIFIED</td>
+                    <td class="clickable-cell" data-cell-ref="J8" data-cell-formula="=SUMIF(A:A, &quot;03-Nov-2026&quot;, J:J)">2 Administered</td>
+                    <td class="clickable-cell" data-cell-ref="P8" data-cell-formula="=IF(D8=0, &quot;STOCKOUT&quot;, &quot;IN_STOCK&quot;)">IN_STOCK</td>
+                  </tr>
+                  <tr style="background: #fdf6b2; font-weight: 800;">
+                    <td>10</td>
+                    <td colspan="8">7-Day Rolling Stockout Rate Formula:</td>
+                    <td colspan="2" class="selected-cell clickable-cell" data-cell-ref="P10" data-cell-formula="=COUNTIF(P3:P9, &quot;*STOCKOUT*&quot;)/7" style="color: #064e3b; font-size: 0.85rem;">
+                      14.28% (&lt; 30% Threshold Safe)
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- KPI ROW GRID -->
+          <div class="kpi-row-grid" id="kpi-market-target">
+            <div class="kpi-metric-box">
+              <div class="metric-title">Stockout Rate</div>
+              <div class="metric-num">14.2%</div>
+              <div class="metric-sub">✓ Target: &lt; 30% (Safe from pivot)</div>
+            </div>
+            <div class="kpi-metric-box">
+              <div class="metric-title">Husband Tests / Wk</div>
+              <div class="metric-num">20 Target</div>
+              <div class="metric-sub">₦500 comm = ₦10k/wk revenue</div>
+            </div>
+            <div class="kpi-metric-box">
+              <div class="metric-title">Self-Update Compliance</div>
+              <div class="metric-num">92%</div>
+              <div class="metric-sub">3 Abuja pharmacies on tablet</div>
+            </div>
+            <div class="kpi-metric-box">
+              <div class="metric-title">Hospital LOIs Signed</div>
+              <div class="metric-num">1 of 5</div>
+              <div class="metric-sub">Nisa Premier Wuse 2 (20 Oct)</div>
+            </div>
+          </div>
+
+          <!-- UNIT ECONOMICS & GRANT BUDGET BREAKDOWN -->
+          <div class="pitch-budget-grid" id="grant-budget-target">
+            <!-- Unit Economics & Break-Even -->
+            <div class="budget-card">
+              <span class="section-tag">Business Model Flip</span>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">
+                Free For Mums • Unit Economics
+              </h3>
+              <p style="font-size: 0.82rem; color: #64748b; margin-bottom: 1.25rem;">
+                Old model charged mums ₦20k (needed 1,245 mums to break even = impossible). 
+                New model monetizes procurement margin + lab commission + importer data.
+              </p>
+
+              <div class="budget-list">
+                <div class="budget-item">
+                  <span>Procurement Margin per Dose (Buy $35/~₦55k → Sell ₦85k):</span>
+                  <span class="amt">+₦20,000</span>
+                </div>
+                <div class="budget-item">
+                  <span>Husband Test Commission (₦500 × 20 tests/wk):</span>
+                  <span class="amt">+₦10,000 / wk</span>
+                </div>
+                <div class="budget-item">
+                  <span>B2B Real-Time Demand Data to Importers:</span>
+                  <span class="amt">+₦50,000 / mo</span>
+                </div>
+                <div class="budget-item" style="background: #ecfdf5; border: 1px solid #6ee7b7;">
+                  <strong>New Break-Even Point (Lean Team ₦1.1M/mo):</strong>
+                  <span class="amt" style="color: #059669; font-size: 1rem;">55 Mums / month</span>
+                </div>
+              </div>
+
+              <!-- Interactive Slider -->
+              <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #e2e8f0;">
+                <label style="font-size: 0.82rem; font-weight: 700; color: #1e293b; display: flex; justify-content: space-between;">
+                  <span>Monthly Mothers Served Simulator:</span>
+                  <strong style="color: #059669;" id="mum-slider-count">65</strong>
+                </label>
+                <input type="range" id="mum-volume-slider" min="10" max="200" value="65" style="width: 100%; margin: 0.6rem 0;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.78rem;">
+                  <span>Procurement Gross Margin: <strong id="calculated-margin">₦1,300,000</strong></span>
+                  <span>Net: <strong id="calculated-net-profit"><span style="color: #059669;">+₦298,750 (PROFITABLE)</span></strong></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pre-Seed Ask: ₦2M Grant Allocation -->
+            <div class="budget-card">
+              <span class="section-tag">Pre-Seed Grant</span>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">
+                ₦2,000,000 Pre-Seed Ask (60-Day Runway)
+              </h3>
+              <p style="font-size: 0.82rem; color: #64748b; margin-bottom: 1.25rem;">
+                Not looking for VC equity today. Asking for ₦2M pre-seed grant to prove supply verification and stockout &lt; 30% for 60 days.
+              </p>
+
+              <div class="budget-list">
+                <div class="budget-item">
+                  <span>Verification (₦5k/day × 3 pharmacies × 60 days + tablet):</span>
+                  <span class="amt">₦600,000</span>
+                </div>
+                <div class="budget-item">
+                  <span>5 Hospital LOIs + Midwife Champion (Hausa speaker):</span>
+                  <span class="amt">₦400,000</span>
+                </div>
+                <div class="budget-item">
+                  <span>Husband Test Kits Buffer (Partnering with 5 Abuja labs):</span>
+                  <span class="amt">₦500,000</span>
+                </div>
+                <div class="budget-item">
+                  <span>Content + WhatsApp Business API & Meta Concierge:</span>
+                  <span class="amt">₦500,000</span>
+                </div>
+                <div class="budget-item" style="background: #064e3b; color: white;">
+                  <strong style="color: white;">Total Pre-Seed Grant Ask:</strong>
+                  <span class="amt" style="color: #a7f3d0; font-size: 1rem;">₦2,000,000</span>
+                </div>
+              </div>
+
+              <!-- Day 60 Deliverables Checklist -->
+              <div style="margin-top: 1.25rem; padding: 1rem; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 0.78rem;">
+                <strong>Deliverables at Day 60:</strong><br>
+                ✓ 150 Rh Cards issued &nbsp;•&nbsp; 
+                ✓ 20 husband tests/week &nbsp;•&nbsp; 
+                ✓ Stockout sheet &lt; 30% rolling &nbsp;•&nbsp; 
+                ✓ 5 signed hospital LOIs
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ===============================================================
+         PRESENTER TELEPROMPTER DRAWER (SYNCHRONIZED PITCH COMPANION)
+         =============================================================== -->
+    <div class="pitch-drawer-backdrop" id="pitch-drawer-backdrop"></div>
+    <aside class="pitch-drawer" id="pitch-drawer">
+
+      <!-- Drawer Header -->
+      <div class="drawer-header">
+        <h2>
+          <span>🎙️</span>
+          <span>Pitch Companion & Teleprompter</span>
+        </h2>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <!-- Timer HUD -->
+          <div style="display: flex; align-items: center; gap: 0.35rem; background: #090e1a; padding: 0.3rem 0.6rem; border-radius: 8px; border: 1px solid #334155;">
+            <span id="pitch-timer-display" style="font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; font-weight: 800; color: #34d399;">00:00</span>
+            <button id="pitch-timer-start" style="padding: 0.15rem 0.45rem; font-size: 0.7rem; font-weight: 700; border-radius: 4px; background: #059669; color: white; border: none; cursor: pointer;">▶ Start</button>
+            <button id="pitch-timer-reset" style="padding: 0.15rem 0.45rem; font-size: 0.7rem; border-radius: 4px; background: #334155; color: white; border: none; cursor: pointer;">↺</button>
+          </div>
+          <button class="drawer-close-btn" id="drawer-close-btn">&times;</button>
+        </div>
+      </div>
+
+      <!-- Pitch Version Switcher Tabs -->
+      <div class="pitch-version-tabs">
+        <button class="pitch-v-btn" data-version="60sec">60-Sec Elevator</button>
+        <button class="pitch-v-btn active" data-version="3min">3-Min Live Demo</button>
+        <button class="pitch-v-btn" data-version="5min">5-Min Full Pitch</button>
+      </div>
+
+      <!-- Teleprompter Content Area -->
+      <div class="pitch-teleprompter-content">
+
+        <!-- ==================== 60-SEC ELEVATOR ==================== -->
+        <div class="pitch-script-body" id="script-60sec" style="display: none;">
+          <div class="pitch-section-block">
+            <h4 style="color: #34d399; font-size: 0.95rem; font-weight: 800; margin-bottom: 0.5rem;">60-Second Elevator Pitch (Hallways & Quick Meetings)</h4>
+            <p>
+              "I'm building <strong>RhogamConnect</strong>.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              In Nigeria, 2–4% of pregnancies are Rhesus-negative — that's <strong>3,200 women a year in Abuja alone</strong>, 216,000 in Lagos. They need Anti-D within 72 hours after delivery, or the next baby dies from hemolytic disease.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              The drug exists — it's $35 wholesale from India — but retail is ₦60k to ₦142,500, 300% markup, 100% imported, needs 2–8°C fridge, and PHCs don't have it. Women do 3 hospital trips, pay ₦30k for 'free' labs, and still can't find it. 92% of husbands are Rh-positive, so almost every baby is at risk.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              Our prototype is not an app — it's a trust infrastructure. 
+              <button class="pitch-cue-btn" data-cue-action="hero">Landing Page</button> 'Find verified Anti-D in 24 hours, not 2 weeks' + 
+              <button class="pitch-cue-btn" data-cue-action="phone_dms">Instagram Concierge</button> @rhogamconnect.abj + 
+              <button class="pitch-cue-btn" data-cue-action="tablet_portal">3 Pharmacies</button> in Wuse 2 / Garki / Jabi with a tablet that forces Batch No, Expiry, Fridge photo, Temp log, Power backup. Plus 
+              <button class="pitch-cue-btn" data-cue-action="passport">Rh Passport</button> — one card with QR that saves 3 trips.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              <strong>Wedge:</strong> Husband test. If Oga is also Rh-negative — 7.7% chance — you save ₦60k, no injection needed. We charge labs ₦500 commission, not mums.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              Free for mums, ₦20k margin on verified procurement, ₦50k/month demand data to importers. Need ₦2M to close 5 LOIs and prove stockout &lt; 30% for 60 days."
+            </p>
+          </div>
+        </div>
+
+        <!-- ==================== 3-MIN DEMO SCRIPT ==================== -->
+        <div class="pitch-script-body" id="script-3min" style="display: block;">
+          
+          <div class="pitch-section-block">
+            <span style="font-size: 0.72rem; font-weight: 800; color: #a7f3d0;">[Slide 0: Open landing page — rhogamconnect.com — keep visible]</span>
+            <h4 style="color: #34d399; font-size: 0.95rem; font-weight: 800; margin: 0.35rem 0;">1. HOOK — 30 sec — Show the problem is urgent, not rare</h4>
+            <p>
+              "Every 28 minutes in Nigeria, a baby goes to SCBU because mum couldn't find Anti-D. Not because it doesn't exist — because she can't verify it.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              Aisha, 28, teacher + tailor in Kubwa, O-negative, husband O-positive. Tecno Android, 1.5GB weekly, WhatsApp-first. She books ANC late at 22 weeks — 75% of Nigerian women do. PHC says 'do blood group' — she pays ₦30k. Result O-. Nurse says 'go and find Rhogam'. 
+            </p>
+            <p style="margin-top: 0.5rem;">
+              She spends 2 weeks on Nairaland, Facebook groups, calls 12 pharmacies. One says ₦142,500 online. Is it fake? Does it have fridge? She doesn't know. If she misses 72h after delivery, next pregnancy is high-risk. We call it 'abiku' or witchcraft — it's alloimmunization."
+            </p>
+          </div>
+
+          <div class="pitch-section-block">
+            <h4 style="color: #34d399; font-size: 0.95rem; font-weight: 800; margin-bottom: 0.35rem;">2. SOLUTION — 60 sec — LIVE DEMO of prototype</h4>
+            <p>
+              <button class="pitch-cue-btn" data-cue-action="hero">▶ Click landing page hero</button> 
+              "Our prototype answers 3 things mums asked: Time, Money, Stress.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              <strong>Time:</strong> 'One-visit Rh Passport' — 
+              <button class="pitch-cue-btn" data-cue-action="passport">▶ Show card</button>. 
+              Name, O-, husband result, 28w due date, 72h timer QR. Cross-facility — we claim only what we have LOI for. Today we have Nisa Premier Wuse 2 LOI signed 20 Oct. Goal 5 private hospitals by Month 1. Saves ₦5k–₦10k repeat tests.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              <button class="pitch-cue-btn" data-cue-action="faq8">▶ Scroll to FAQ 8</button> 
+              <strong>Money:</strong> Cold-chain verification. Don't trust my words, trust our checklist: Batch No, Expiry, Fridge 2–8°C photo, Temp log book, Power backup Gen/Inverter. 
+              <button class="pitch-cue-btn" data-cue-action="sanlive_photo">▶ Show phone photo of Sanlive fridge</button>. 
+              We only list pharmacy that sends this daily. 
+              <button class="pitch-cue-btn" data-cue-action="excel_sheet">▶ Stockout sheet auto-calculates</button>: 
+              <code>=SUMIF(A:A,Date,J:J)</code> and <code>=COUNTIF(P3:P9,*STOCKOUT*)/7</code>. If &gt; 30%, we kill '24h' ad and switch to pre-order.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              <button class="pitch-cue-btn" data-cue-action="faq7">▶ Scroll to FAQ 7</button> 
+              <strong>Stress:</strong> 72h timer. Mum replies DELIVERED, we remind every 12h: 72→60→48→36→24→12→0h close. Reply RECEIVED + batch photo stops timer. Available in Pidgin, Hausa for Gwagwalada/Bwari — 'Sannu Aisha, lokacin awa 72 ya fara...', Yoruba.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              <button class="pitch-cue-btn" data-cue-action="instagram">▶ Show Instagram @rhogamconnect.abj on phone</button> 
+              Concierge MVP: 9-grid, keywords 
+              <button class="pitch-cue-btn" data-cue-action="phone_dms">HUSBAND / SANNU / BAWO NI / PRICE / CARD</button> auto-reply via Meta Business Suite. No app yet — concierge scales to 100 before we code."
+            </p>
+          </div>
+
+          <div class="pitch-section-block">
+            <h4 style="color: #34d399; font-size: 0.95rem; font-weight: 800; margin-bottom: 0.35rem;">3. WHY NOW / BUSINESS MODEL FLIP — 60 sec</h4>
+            <p>
+              "Old deck said charge mums ₦20k premium — wrong customer. PHC mum paying ₦15k OOP won't pay ₦20k for info. 
+              <strong>New model: FREE for mums.</strong>
+            </p>
+            <p style="margin-top: 0.5rem;">
+              Monetize 3 ways:
+              <br>1. <strong>Procurement margin ₦20k</strong> — Buy $35 (~₦55k), sell ₦85k verified with NAFDAC cert photo. Our sheet tracks it.
+              <br>2. <strong>Husband test wedge ₦500 commission</strong> × 20 tests/week = ₦10k/week, but it saves mum ₦60k and gives us 7.7% cases where baby is safe — best marketing.
+              <br>3. <strong>B2B data ₦50k/month to importers</strong> — they currently waste on expiry. We have real demand: Batch, Expiry, Qty.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              CAC ₦3.5k–6k blended via Facebook Groups + midwife referral. Fixed ₦1.1M lean team. Break-even was 1,245 mums paying ₦20k — impossible. 
+              <button class="pitch-cue-btn" data-cue-action="excel_sheet">▶ New break-even: 55 mums/month</button> via procurement margin."
+            </p>
+          </div>
+
+          <div class="pitch-section-block">
+            <h4 style="color: #34d399; font-size: 0.95rem; font-weight: 800; margin-bottom: 0.35rem;">4. 0 CUSTOMER BASELINE — 30 sec — Show honesty</h4>
+            <p>
+              <button class="pitch-cue-btn" data-cue-action="excel_sheet">▶ Show Excel Dashboard tab</button>
+              "Today: 0 customers. Our tracker starts tomorrow 28 Oct. KPIs: Stockout Rate &lt; 30%, Husband tests/week 20, Self-update 90%, LOIs 5. If stockout &gt; 30% for 7-day rolling, we pivot to pre-order with RSI 1,500 donated doses buffer. 
+            </p>
+            <p style="margin-top: 0.5rem;">
+              First hire at 150 customers: Community Verifier, female ex-CHEW in Kubwa, Hausa/Pidgin, ₦80k + ₦500 per verified update + ₦200 per Rh Card completed. Not now — I verify first 150 myself."
+            </p>
+          </div>
+
+        </div>
+
+        <!-- ==================== 5-MIN FULL PITCH ==================== -->
+        <div class="pitch-script-body" id="script-5min" style="display: none;">
+          <p style="font-size: 0.78rem; color: #a7f3d0; margin-bottom: 1rem;">
+            <em>Includes sections 1–4 from 3-minute demo, plus Market, Risks, and Ask below:</em>
+          </p>
+
+          <div class="pitch-section-block">
+            <h4 style="color: #34d399; font-size: 0.95rem; font-weight: 800; margin-bottom: 0.35rem;">5. MARKET — 40 sec</h4>
+            <p>
+              <button class="pitch-cue-btn" data-cue-action="market_stats">▶ View Market Numbers</button> 
+              "TAM 34M at-risk nationally, but we are Abuja-only. 
+              <strong>SAM FCT 3,200/year × ₦85k = ₦272M.</strong> 
+              <strong>SOM Year 1 1,000 cards = 31% of FCT</strong>, ₦85M GMV, ₦20M margin + ₦2.4M husband commissions + ₦600k B2B. Small, but it's wedge to prove verification &lt; 30% stale. Lagos 216k next year."
+            </p>
+          </div>
+
+          <div class="pitch-section-block">
+            <h4 style="color: #34d399; font-size: 0.95rem; font-weight: 800; margin-bottom: 0.35rem;">6. RISKS & WHAT BREAKS — 40 sec — VCs love this honesty</h4>
+            <p>
+              "Top 3 that break:
+            </p>
+            <p style="margin-top: 0.4rem;">
+              1. <strong>Supply verification at 100+</strong> — I call 3 pharmacies 1h/day now, at 1,000 I can't. 
+              <em>Prevention:</em> 
+              <button class="pitch-cue-btn" data-cue-action="tablet_portal">Tablet 1 button</button>, ₦500/update, photo mandatory, formula <code>=IF(AND(C='Yes',D&gt;0,E='Yes',F='Yes',G='Yes'),'✅','❌')</code>.
+            </p>
+            <p style="margin-top: 0.4rem;">
+              2. <strong>Rh Passport not accepted</strong> — hospitals make money repeating tests. 
+              <em>Prevention:</em> 
+              <button class="pitch-cue-btn" data-cue-action="passport">Only claim LOIs we have</button>, give midwife champion who speaks Hausa to argue with nurse.
+            </p>
+            <p style="margin-top: 0.4rem;">
+              3. <strong>WhatsApp burnout</strong> — 1,000 mums × 72h timer = 100+ msgs/day. 
+              <em>Prevention:</em> 
+              <button class="pitch-cue-btn" data-cue-action="phone_dms">70% auto via keywords</button> CARD/PRICE/AJO/SANNU/DELIVERED/RECEIVED, human only for bleeding/miscarriage &lt; 15 min call."
+            </p>
+          </div>
+
+          <div class="pitch-section-block">
+            <h4 style="color: #34d399; font-size: 0.95rem; font-weight: 800; margin-bottom: 0.35rem;">7. ASK — 20 sec</h4>
+            <p>
+              <button class="pitch-cue-btn" data-cue-action="ask_budget">▶ View ₦2M Budget Breakdown</button> 
+              "Asking <strong>₦2M pre-seed grant</strong>, not VC, for 60 days:
+              <br>• ₦600k verification (₦5k/day × 3 pharmacies × 60 days + tablet)
+              <br>• ₦400k 5 LOIs + midwife champion
+              <br>• ₦500k husband test kits buffer with 5 labs
+              <br>• ₦500k content + WhatsApp Business API
+            </p>
+            <p style="margin-top: 0.5rem;">
+              <strong>Deliverable Day 60:</strong> 150 Rh Cards, 20 tests/week, stockout sheet &lt; 30% 7-day rolling, 5 LOIs signed. Then we talk procurement margin scale."
+            </p>
+          </div>
+
+          <div class="pitch-section-block" style="border-left-color: #3b82f6;">
+            <h4 style="color: #93c5fd; font-size: 0.95rem; font-weight: 800; margin-bottom: 0.35rem;">CLOSING LINE</h4>
+            <p style="font-weight: 700; color: white;">
+              "We're not selling injection — we're selling 72 hours of certainty in a system where stillbirth is called abiku. Prototype is live, tracker starts tomorrow with 0 baseline. Can I show you the sheet?"
+            </p>
+          </div>
+
+        </div>
+
+        <!-- DELIVERY TIPS CHEAT SHEET -->
+        <div class="delivery-tips-box">
+          <h4>💡 Founder Delivery Tips</h4>
+          <ul>
+            <li><strong>Never claim UCH / LUTH / ABUTH:</strong> Header stays "Abuja • Wuse 2 • Garki • Jabi" today.</li>
+            <li><strong>When they ask "Why not build an app?":</strong> Click and show Excel formula <code>SUMIF</code> — that's our tech for now.</li>
+            <li><strong>When they ask "Why free?":</strong> Highlight 92.3% partner Rh+ stat — you can't charge a woman who already paid ₦30k for 'free' labs.</li>
+            <li><strong>Always end with tracker, not deck:</strong> Leave the Excel Sheet tab on screen during Q&A.</li>
+          </ul>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- ===============================================================
+         MODALS (SANLIVE FRIDGE AUDIT & PASSPORT & LAB VOUCHER)
+         =============================================================== -->
+
+    <!-- Modal 1: Sanlive Fridge Photo Audit -->
+    <div class="modal-backdrop" id="modal-sanlive-photo">
+      <div class="modal-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: #064e3b;">Sanlive Pharmacy Wuse 2 — Daily Fridge Audit</h3>
+          <button class="modal-close-trigger" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b;">&times;</button>
+        </div>
+        
+        <!-- Simulated Real Photo of Pharmacy Fridge & Digital Thermometer -->
+        <div style="background: #0f172a; border-radius: 12px; padding: 1.5rem; text-align: center; color: white; margin-bottom: 1rem; border: 2px solid #10b981; position: relative;">
+          <div style="position: absolute; top: 12px; right: 12px; background: #059669; padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 800;">
+            VERIFIED 4.2°C
+          </div>
+          <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🧊</div>
+          <strong style="font-size: 1.1rem; display: block;">Haier Biomedical Biological Refrigerator</strong>
+          <p style="font-size: 0.78rem; color: #94a3b8; margin-top: 0.25rem;">
+            Photo captured: 28-Oct-2026 at 08:15 AM WAT via Sanlive Tablet Camera
+          </p>
+          <div style="margin-top: 1rem; display: inline-flex; gap: 1rem; background: rgba(255,255,255,0.08); padding: 0.6rem 1rem; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;">
+            <span>Temp: <strong style="color: #34d399;">4.2°C</strong></span>
+            <span>Batch: <strong>#IN-RH-84920</strong></span>
+            <span>Power: <strong style="color: #38bdf8;">Inverter Online</strong></span>
+          </div>
+        </div>
+
+        <p style="font-size: 0.82rem; color: #475569; line-height: 1.5;">
+          Physical audit confirmed by Pharmacist-in-charge (Pharm. Okon). Continuous power backed by 10kVA solar inverter and standby diesel generator.
+        </p>
+        <button class="lp-cta-btn modal-close-trigger" style="width: 100%; margin-top: 1rem; justify-content: center;">
+          Close Audit Photo
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal 2: Issue / Print Rh Passport -->
+    <div class="modal-backdrop" id="modal-passport-details">
+      <div class="modal-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: #064e3b;">Digital Rh Passport Card Preview</h3>
+          <button class="modal-close-trigger" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b;">&times;</button>
+        </div>
+        <div style="background: #064e3b; color: white; padding: 1.5rem; border-radius: 14px; border: 2px solid #34d399; margin-bottom: 1rem;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #a7f3d0; margin-bottom: 0.75rem;">
+            <span>RH-PASSPORT #ABJ-2026-0814</span>
+            <span>FCT MATERNAL TRUST</span>
+          </div>
+          <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.2rem;">Aisha Bello</h4>
+          <p style="font-size: 0.78rem; color: #d1fae5; margin-bottom: 1rem;">Kubwa, Abuja • 28 Years Old • ANC 28w</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.82rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 0.75rem;">
+            <div>Mother: <strong style="color: #ef4444;">O- Negative</strong></div>
+            <div>Husband: <strong>O+ Positive</strong></div>
+            <div>LOI Clinic: <strong>Nisa Premier</strong></div>
+            <div>Timer QR: <strong>Verified</strong></div>
+          </div>
+        </div>
+        <p style="font-size: 0.8rem; color: #64748b;">
+          This card is cross-facility recognized under our LOI with Nisa Premier Wuse 2. Present this card at admission to bypass repeated ₦30k test fees.
+        </p>
+        <button class="lp-cta-btn modal-close-trigger" onclick="alert('Passport downloaded as PDF / Sent to WhatsApp +234 803 *** ****');" style="width: 100%; margin-top: 1rem; justify-content: center;">
+          Download / Send to WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal 3: Husband Test ₦500 Lab Voucher -->
+    <div class="modal-backdrop" id="modal-lab-voucher">
+      <div class="modal-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: #064e3b;">₦500 Lab Voucher for Oga</h3>
+          <button class="modal-close-trigger" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b;">&times;</button>
+        </div>
+        <div style="border: 2px dashed #059669; background: #ecfdf5; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; text-align: center;">
+          <span style="font-size: 0.75rem; font-weight: 800; color: #065f46; letter-spacing: 0.05em; text-transform: uppercase;">Partner Referral Voucher</span>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 800; color: #064e3b; margin: 0.5rem 0;">
+            HUSBAND-RH-ABJ500
+          </div>
+          <p style="font-size: 0.82rem; color: #047857;">
+            Valid at: <strong>Synlab Wuse 2</strong> & <strong>Clina-Lancet Garki</strong>
+          </p>
+        </div>
+        <p style="font-size: 0.82rem; color: #475569; line-height: 1.5;">
+          Present this code at any partner lab. RhogamConnect pays the lab a ₦500 referral commission. If your husband is Rhesus-negative (7.7% chance), you completely save ₦60k on Anti-D injection!
+        </p>
+        <button class="lp-cta-btn modal-close-trigger" onclick="alert('Voucher HUSBAND-RH-ABJ500 saved! SMS notification dispatched.');" style="width: 100%; margin-top: 1rem; justify-content: center;">
+          Save Voucher to Phone
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
